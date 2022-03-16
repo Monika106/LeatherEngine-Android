@@ -314,7 +314,7 @@ class TitleState extends MusicBeatState
 		{
 			if (touch.justPressed)
 			{
-				pressedEnter = true;
+				pressed = true;
 			}
 		}
 		#end
@@ -323,12 +323,12 @@ class TitleState extends MusicBeatState
 
 		if (gamepad != null)
 		{
-			if (gamepad.justPressed.START)
-				pressedEnter = true;
+			if (gamepad.justPressed)
+				pressed = true;
 
 			#if switch
-			if (gamepad.justPressed.B)
-				pressedEnter = true;
+			if (gamepad.justPressed)
+				pressed = true;
 			#end
 		}
 
