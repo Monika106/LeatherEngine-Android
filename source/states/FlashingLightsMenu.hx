@@ -18,13 +18,11 @@ class FlashingLightsMenu extends MusicBeatState
         add(text);
     }
     
-    #if mobileC
+if mobileC
 		addVirtualPad(NONE, A_B);
 		#end
 	}
 
-    override function update(elapsed:Float)
-    {
                       if(!leftState) {
 			var back:Bool = controls.BACK;
 			if (controls.ACCEPT || back) {
