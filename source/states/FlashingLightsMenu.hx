@@ -18,7 +18,7 @@ class FlashingLightsMenu extends MusicBeatState
         add(text);
     }
     
-if mobileC
+         #if mobileC
 		addVirtualPad(NONE, A_B);
 		#end
 	}
