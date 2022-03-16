@@ -307,14 +307,14 @@ class TitleState extends MusicBeatState
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
 
-		var pressedEnter:Bool = FlxG.keys.justPressed.A;
+		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
 		#if mobile
 		for (touch in FlxG.touches.list)
 		{
-			if (touch.justPressed.A)
+			if (touch.justPressed)
 			{
-				pressedA = true;
+				pressedEnter = true;
 			}
 		}
 		#end
@@ -323,12 +323,12 @@ class TitleState extends MusicBeatState
 
 		if (gamepad != null)
 		{
-			if (gamepad.justPressed.A)
-				pressedA = true;
+			if (gamepad.justPressed.START)
+				pressedEnter = true;
 
 			#if switch
 			if (gamepad.justPressed.B)
-				pressedB= true;
+				pressedEnter = true;
 			#end
 		}
 
