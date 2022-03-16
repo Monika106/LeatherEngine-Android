@@ -11,6 +11,11 @@ import game.Conductor.BPMChangeEvent;
 import utilities.Controls;
 import flixel.FlxG;
 import flixel.addons.ui.FlxUIState;
+#if android
+import flixel.input.actions.FlxActionInput;
+import android.AndroidControls.AndroidControls;
+import android.FlxVirtualPad;
+#end
 
 class MusicBeatState extends FlxUIState
 {
@@ -28,6 +33,69 @@ class MusicBeatState extends FlxUIState
 
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
+
+	#if android
+	var _virtualpad:FlxVirtualPad;
+	var androidc:AndroidControls;
+	var trackedinputs:Array<FlxActionInput> = [];
+	#end
+
+	#if android
+	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
+		_virtualpad = new FlxVirtualPad(DPad, Action);
+		_virtualpad.alpha = 0.75;
+		add(_virtualpad);
+		controls.setVirtualPad(_virtualpad, DPad, Action);
+		trackedinputs = controls.trackedinputs;
+		controls.trackedinputs = [];
+	}
+	#end
+
+	#if android
+	public function addAndroidControls() {
+                androidc = new AndroidControls();
+
+		switch (androidc.mode)
+		{
+			case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
+				controls.setVirtualPad(androidc._virtualPad, FULL, NONE);
+			case DUO:
+				controls.setVirtualPad(androidc._virtualPad, DUO, NONE);
+			case HITBOX:
+				controls.setHitBox(androidc._hitbox);
+			default:
+		}
+
+		trackedinputs = controls.trackedinputs;
+		controls.trackedinputs = [];
+
+		var camcontrol = new flixel.FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		androidc.cameras = [camcontrol];
+
+		androidc.visible = false;
+
+		add(androidc);
+	}
+	#end
+
+	#if android
+        public function addPadCamera() {
+		var camcontrol = new flixel.FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		_virtualpad.cameras = [camcontrol];
+	}
+	#end
+
+	override function destroy() {
+		#if android
+		controls.removeFlxInput(trackedinputs);
+		#end	
+
+		super.destroy();
+	}
 
 	override function update(elapsed:Float)
 	{
