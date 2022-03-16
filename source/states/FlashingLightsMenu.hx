@@ -26,7 +26,6 @@ class FlashingLightsMenu extends MusicBeatState
 
 
 			var back:Bool = controls.BACK;
-				if(!back) {
 					FlxG.sound.play(Paths.sound('confirmMenu'));
 					FlxFlicker.flicker(warnText, 1, 0.1, false, true, function(flk:FlxFlicker) {
 						new FlxTimer().start(0.5, function (tmr:FlxTimer) {
