@@ -23,7 +23,7 @@ class FlashingLightsMenu extends MusicBeatState
 		#end
 	}
 
-                      (!leftState) {
+
 			var back:Bool = controls.BACK;
 			if (controls.ACCEPT || back) {
 				leftState = true;
