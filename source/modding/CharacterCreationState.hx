@@ -279,7 +279,6 @@ class CharacterCreationState extends MusicBeatState
         if(charDropDown != null)
             add(charDropDown);
 
-        animations = character.animation.getNameList();
 
         if(animations.length < 1)
             animations = ["idle"];
