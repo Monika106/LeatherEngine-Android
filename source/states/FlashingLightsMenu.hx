@@ -17,9 +17,22 @@ class FlashingLightsMenu extends MusicBeatState
         text.setBorderStyle(OUTLINE, FlxColor.BLACK, 1.5, 1);
         add(text);
     }
-    
-         #if mobileC
+
+#if mobileC
 		addVirtualPad(NONE, A_B);
 		#end
-	}
-		super.update(elapsed) 
+		}
+
+    override function update(elapsed:Float)
+    {
+        super.update(elapsed);
+
+        if(FlxG.keys.justPressed.Y)
+            Options.setData(true, "flashingLights");
+        else if(!FlxG.keys.justPressed.Y && FlxG.keys.justPressed.B)
+            Options.setData(false, "flashingLights");
+
+        if(FlxG.keys.justPressed.A)
+            FlxG.switchState(new TitleState());
+    }
+}
