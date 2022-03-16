@@ -26,7 +26,6 @@ class FlashingLightsMenu extends MusicBeatState
 
 
 			var back:Bool = controls.BACK;
-				leftState = true;
 				FlxTransitionableState.skipNextTransIn = true;
 				FlxTransitionableState.skipNextTransOut = true;
 				if(!back) {
