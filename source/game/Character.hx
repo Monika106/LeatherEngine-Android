@@ -361,7 +361,7 @@ class Character extends FlxSprite
 			dancesLeftAndRight = config.dancesLeftAndRight;
 
 			if(Assets.exists(Paths.file("images/characters/" + config.imagePath + ".txt", TEXT, "shared")))
-				frames = SUtil.getPath() + Paths.getPackerAtlas('characters/' + config.imagePath, 'shared');
+				frames = Paths.getPackerAtlas('characters/' + config.imagePath, 'shared');
 			else if(Assets.exists(Paths.file("images/characters/" + config.imagePath + "/Animation.json", TEXT, "shared")))
 				frames = AtlasFrameMaker.construct("characters/" + config.imagePath);
 			else
