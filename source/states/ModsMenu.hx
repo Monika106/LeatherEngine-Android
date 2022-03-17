@@ -62,6 +62,10 @@ class ModsMenu extends MusicBeatState
 		menuBG.antialiasing = true;
 		add(menuBG);
 
+                #if android
+                addVirtualPad(UP_DOWN, B);
+                #end
+
 		super.create();
 
 		add(page);

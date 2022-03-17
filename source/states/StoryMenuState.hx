@@ -70,6 +70,10 @@ class StoryMenuState extends MusicBeatState
 		// CREATE THE UI //
 		createStoryUI();
 
+                #if android
+                addVirtualPad(FULL, A_B);
+                #end
+
 		super.create();
 	}
 

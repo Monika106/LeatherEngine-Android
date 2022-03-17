@@ -42,6 +42,10 @@ class ReplaySelectorState extends MusicBeatState
         add(grpReplays);
 
         reloadReplays();
+
+        #if android
+        addVirtualPad(UP_DOWN, A_B);
+        #end
     }
 
     override function update(elapsed:Float) {

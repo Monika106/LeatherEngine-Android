@@ -876,6 +876,10 @@ class PlayState extends MusicBeatState
 			if(utilities.Options.getData("sideRatings") == true)
 				ratingText.cameras = [camHUD];
 
+                #if android
+	        addAndroidControls();
+                #end
+
 			startingSong = true;
 
 			var cutscenePlays = utilities.Options.getData("cutscenePlaysOn");
@@ -1307,6 +1311,11 @@ class PlayState extends MusicBeatState
 
 		if(utilities.Options.getData("middlescroll"))
 		{
+		
+	        #if android
+	        androidc.visible = true;
+	        #end
+
 			generateStaticArrows(50, false);
 			generateStaticArrows(0.5, true);
 		}
@@ -2600,6 +2609,10 @@ class PlayState extends MusicBeatState
 		canPause = false;
 		FlxG.sound.music.volume = 0;
 		vocals.volume = 0;
+		
+                #if android
+	        androidc.visible = false;
+	        #end
 
 		// lol dude when a song ended in freeplay it legit reloaded the page and i was like:  o_o ok
 		if(FlxG.state == instance)

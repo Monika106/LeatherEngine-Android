@@ -191,6 +191,10 @@ class OptionsMenu extends MusicBeatState
 		menuBG.antialiasing = true;
 		add(menuBG);
 
+                #if android
+                addVirtualPad(UP_DOWN, A_B);
+                #end
+
 		super.create();
 
 		add(page);
