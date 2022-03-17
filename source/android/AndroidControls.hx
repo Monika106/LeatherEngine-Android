@@ -118,7 +118,7 @@ class AndroidControls extends FlxSpriteGroup
 				_virtualPad.alpha = 0.75;
 				add(_virtualPad);	
 			case 3:
-				_virtualPad = new FlxVirtualPad(DUO, NONE);
+				_virtualPad = new FlxVirtualPad(NONE, NONE);
 				_virtualPad.alpha = 0.75;
 				add(_virtualPad);		
 			case 4:
