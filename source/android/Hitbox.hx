@@ -8,7 +8,7 @@ import flixel.tweens.FlxEase;
 import flixel.ui.FlxButton;
 import flixel.FlxSprite;
 
-class Hitbox extends FlxSpriteGroup;
+class Hitbox extends FlxSpriteGroup
 {
 	var hitboxframes:FlxAtlasFrames;
 	var hitbox_hint:FlxSprite;
@@ -25,7 +25,7 @@ class Hitbox extends FlxSpriteGroup;
 
 		var hitbox_hint:FlxSprite = new FlxSprite(0, 0);
 		hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox_hint'))
-		add(hitbox_hint) ;
+		add(hitbox_hint);
 
 		hitbox = new FlxSpriteGroup();
 		hitboxframes = Paths.getSparrowAtlas('androidcontrols/hitbox');
