@@ -9,7 +9,7 @@ import flixel.ui.FlxButton;
 import flixel.FlxSprite;
 
 class Hitbox FlxSpriteGroup;
-}
+
 
 	var hitboxframes:FlxAtlasFrames;
 	var hitbox_hint:FlxSprite;
