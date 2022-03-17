@@ -23,6 +23,10 @@ class ResetScoreSubstate extends MusicBeatSubstate
     public function new(_songName:String, _difficulty:String, ?_weekNum:Int = 0, ?_weekPath:String = "original_weeksWeek", ?_story:Bool = false)
     {
         FlxG.mouse.visible = true;
+
+        #if android
+        addVirtualPad(NONE, B);
+        #end
         
         super();
 

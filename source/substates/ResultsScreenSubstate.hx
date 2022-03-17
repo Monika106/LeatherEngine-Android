@@ -53,6 +53,10 @@ class ResultsScreenSubstate extends MusicBeatSubstate
         add(graph);
 
         cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
+
+        #if android
+        addVirtualPad(NONE, A);
+        #end
     }
 
     override function update(elapsed:Float) {
