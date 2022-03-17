@@ -91,7 +91,7 @@ class StageGroup extends FlxGroup
             {
                 var JSON_Data:String = "";
     
-                JSON_Data = Assets.getText(Paths.json("stage data/" + stage)).trim();
+                JSON_Data = SUtil.getPath() + Assets.getText(Paths.json("stage data/" + stage)).trim();
                 stage_Data = cast Json.parse(JSON_Data);
             }
         }
