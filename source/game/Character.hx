@@ -322,7 +322,7 @@ class Character extends FlxSprite
 		if(Assets.exists(Paths.json("character data/optimized_" + characterName + "/config")) && Options.getData("optimizedChars"))
 			characterName = "optimized_" + characterName;
 
-		var rawJson = Assets.getText(Paths.json("character data/" + characterName + "/config")).trim();
+		var rawJson = SUtil.getPath() + Assets.getText(Paths.json("character data/" + characterName + "/config")).trim();
 
 		var config:CharacterConfig = cast Json.parse(rawJson);
 
