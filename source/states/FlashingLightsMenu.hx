@@ -17,7 +17,7 @@ class FlashingLightsMenu extends MusicBeatState
         text.setBorderStyle(OUTLINE, FlxColor.BLACK, 1.5, 1);
         add(text);
 
-        #if mobileC
+        #if android
         addVirtualPad(NONE, A_B);
         #end
     }
