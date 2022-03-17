@@ -35,7 +35,7 @@ class MenuCharacter extends FlxSprite
 	
 			characterData = cast Json.parse(Assets.getText(Paths.json("menu character data/" + character)));
 	
-			frames = Paths.getSparrowAtlas('campaign menu/characters/' + characterData.File_Name);
+			frames = SUtil.getPath() + Paths.getSparrowAtlas('campaign menu/characters/' + characterData.File_Name);
 	
 			animation.addByPrefix("idle", characterData.Animation_Name, characterData.FPS, characterData.Animation_Looped);
 			animation.play("idle");
