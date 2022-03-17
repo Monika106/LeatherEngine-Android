@@ -89,7 +89,7 @@ enum Control
 enum KeyboardScheme
 {
 	Solo;
-	DUO(first:Bool);
+	Duo(first:Bool);
 	None;
 	Custom;
 }
