@@ -116,6 +116,10 @@
 	<haxelib name="discord_rpc" if="desktop"/>
 	<haxelib name="linc_luajit" />
 	<haxelib name="hxvm-luajit" />
+        <haxelib name="AndroidTools" if="android"/>
+
+        <config:android permission="android.permission.READ_EXTERNAL_STORAGE" if="android"/>
+        <config:android permission="android.permission.WRITE_EXTERNAL_STORAGE" if="android"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
