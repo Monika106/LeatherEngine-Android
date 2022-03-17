@@ -14,6 +14,8 @@ class Hitbox extends FlxSpriteGroup
 	var hitbox_hint:FlxSprite;
 
 	public var hitbox:FlxSpriteGroup;
+	public var buttonA:FlxButton;
+	public var buttonB:FlxButton;
 	public var buttonLeft:FlxButton;
 	public var buttonDown:FlxButton;
 	public var buttonUp:FlxButton;
