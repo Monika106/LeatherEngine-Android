@@ -60,7 +60,7 @@ class MusicBeatState extends FlxUIState
 			case VIRTUALPAD_RIGHT | VIRTUALPAD_LEFT | VIRTUALPAD_CUSTOM:
 				controls.setVirtualPad(androidc._virtualPad, FULL, NONE);
 			case dpad:
-				controls.setVirtualPad(androidc._virtualPad, NONE, NONE);
+				controls.setVirtualPad(androidc._virtualPad, A, B);
 		}
 
 		trackedinputs = controls.trackedinputs;
