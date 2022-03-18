@@ -1182,16 +1182,16 @@ class PlayState extends MusicBeatState
 		var fileName:String = #if sys SUtil.getPath() + PolymodAssets.getPath(Paths.video(name, ext)) #else Paths.video(name, ext) #end;
 
 		#if sys
-		if(FileSystem.exists(fileName)) {
+		if(FileSystem.exists(SUtil.getPath() + fileName)) {
 			foundFile = true;
 		}
 		#end
 
 		if(!foundFile) {
-			fileName = Paths.video(name);
+			fileName = Paths.video(SUtil.getPath() + name);
 
 			#if sys
-			if(FileSystem.exists(fileName)) {
+			if(FileSystem.exists(SUtil.getPath() + fileName)) {
 			#else
 			if(OpenFlAssets.exists(fileName)) {
 			#end
