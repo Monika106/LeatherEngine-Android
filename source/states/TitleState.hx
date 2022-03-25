@@ -568,7 +568,7 @@ class AnimatronicMenu extends MusicBeatState
 		if(FlxG.keys.justPressed.M)
 		{
 				
-			FlxG.switchState(new game);
+			FlxG.switchState(new Minigame());
 		}
 		
 
