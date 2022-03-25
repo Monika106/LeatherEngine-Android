@@ -8,6 +8,7 @@ import lime.utils.Assets;
 import utilities.Discord.DiscordClient;
 #end
 import flixel.FlxG;
+import flixel.FlxGamepad;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.addons.transition.FlxTransitionableState;
@@ -145,7 +146,7 @@ class MainMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				changeItem(-1 * Math.floor(FlxG.mouse.wheel));
 			}
-var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+      var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
 			if (gamepad != null)
 			{
