@@ -8,7 +8,7 @@ import lime.utils.Assets;
 import utilities.Discord.DiscordClient;
 #end
 import flixel.FlxG;
-import flixel.FlxGamepad;
+import flixel.input.gamepad.FlxGamepad
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.addons.transition.FlxTransitionableState;
