@@ -355,7 +355,7 @@ class AnimatronicMenu extends MusicBeatState
 
 		// DEBUG BULLSHIT
 
-         #if mobileC
+    #if mobileC
 		addVirtualPad(UP_DOWN, A_B);
 		#end
 		
@@ -568,7 +568,7 @@ class AnimatronicMenu extends MusicBeatState
 		if(FlxG.keys.justPressed.M)
 		{
 				
-			FlxG.switchState(new Minigame());
+			FlxG.switchState(new MainMenu());
 		}
 		
 
