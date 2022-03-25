@@ -18,7 +18,7 @@ import flixel.input.gamepad.FlxGamepad;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
 import flixel.system.FlxSound;
-import Flixel.FlxAlphabet;
+import flixel.FlxAlphabet;
 import flixel.system.ui.FlxSoundTray;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
