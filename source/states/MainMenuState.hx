@@ -122,7 +122,7 @@ class MainMenuState extends MusicBeatState
 		changeItem();
 
                 #if android
-                addVirtualPad(UP_DOWN, A_B);
+                addVirtualPad(UP_DOWN, A_B_C);
                 #end
 
 		super.create();
@@ -140,13 +140,7 @@ class MainMenuState extends MusicBeatState
 		}
 
 		if (!selectedSomethin)
-		{
-			if(-1 * Math.floor(FlxG.mouse.wheel) != 0)
-			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
-				changeItem(-1 * Math.floor(FlxG.mouse.wheel));
-			}
-      var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
 			if (gamepad != null)
 			{
@@ -160,6 +154,12 @@ class MainMenuState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('scrollMenu'));
 					changeItem(1);
 				}
+			}
+		{
+			if(-1 * Math.floor(FlxG.mouse.wheel) != 0)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				changeItem(-1 * Math.floor(FlxG.mouse.wheel));
 			}
 			
 			if (controls.UP_P)
