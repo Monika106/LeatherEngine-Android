@@ -140,7 +140,13 @@ class MainMenuState extends MusicBeatState
 		}
 
 		if (!selectedSomethin)
-var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
+		{
+			if(-1 * Math.floor(FlxG.mouse.wheel) != 0)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'));
+				changeItem(-1 * Math.floor(FlxG.mouse.wheel));
+			}
+      var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
 			if (gamepad != null)
 			{
@@ -155,12 +161,7 @@ var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 					changeItem(1);
 				}
 			}
-		{
-			if(-1 * Math.floor(FlxG.mouse.wheel) != 0)
-			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
-				changeItem(-1 * Math.floor(FlxG.mouse.wheel));
-			}
+
 			
 			if (controls.UP_P)
 			{
