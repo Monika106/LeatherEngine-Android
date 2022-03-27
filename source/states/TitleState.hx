@@ -532,12 +532,6 @@ class TitleState extends MusicBeatState
 			remove(credGroup);
 			skippedIntro = true;
 		}
-		
-		
-		
-        super.update(elapsed);
-
-	}
 	
 	
 	
