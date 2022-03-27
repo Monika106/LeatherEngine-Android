@@ -523,9 +523,22 @@ class TitleState extends MusicBeatState
 			if(utilities.Options.getData("flashingLights"))
 				FlxG.camera.flash(FlxColor.WHITE, 4);
 
+			if(FlxG.keys.justPressed.M)
+		{
+
+			FlxG.switchState(new MainMenuState());
+
 			remove(ngSpr);
 			remove(credGroup);
 			skippedIntro = true;
 		}
+		
+		
+		
+        super.update(elapsed)
+
 	}
+	
+	
+	
 }
