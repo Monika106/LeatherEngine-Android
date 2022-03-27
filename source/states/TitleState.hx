@@ -535,7 +535,7 @@ class TitleState extends MusicBeatState
 		
 		
 		
-        super.update(elapsed)
+        super.update(elapsed);
 
 	}
 	
