@@ -353,7 +353,9 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.music.stop();
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
-			{
+			{ 
+                                      if(justPreesed)
+
 				FlxG.switchState(new MainMenuState());
 				});
 				
