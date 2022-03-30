@@ -362,7 +362,7 @@ class TitleState extends MusicBeatState
 				
 			}
                  
-
+                }
            }
 
 		if (pressedEnter && !skippedIntro)
