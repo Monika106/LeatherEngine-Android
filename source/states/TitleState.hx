@@ -323,12 +323,6 @@ class TitleState extends MusicBeatState
 			}
 		}
 		#end
-		
-    if (touch.justPressed)
-    FlxG.switchState(new MainMenuState());
-    }
-}
-
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
 		if (gamepad != null)
@@ -361,7 +355,7 @@ class TitleState extends MusicBeatState
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{ 
                                 
-
+        if (touch.justPressed
 				FlxG.switchState(new MainMenuState());
 				});
 				
