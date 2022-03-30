@@ -355,7 +355,7 @@ class TitleState extends MusicBeatState
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{ 
                                 
-        if (touch.justPressed
+                   if (touch.justPressed) 
 				FlxG.switchState(new MainMenuState());
 				});
 				
