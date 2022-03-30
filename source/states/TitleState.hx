@@ -1,3 +1,4 @@
+
 package states;
 
 import utilities.Options;
@@ -322,6 +323,11 @@ class TitleState extends MusicBeatState
 			}
 		}
 		#end
+		
+    if (touch.justPressed)
+    FlxG.switchState(new MainMenuState());
+    }
+}
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
