@@ -353,8 +353,9 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.music.stop();
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
+                        for (touch in FlxG.touches.list)
 			{ 
-                                
+                               
                    if (touch.justPressed) 
 				FlxG.switchState(new MainMenuState());
 				});
