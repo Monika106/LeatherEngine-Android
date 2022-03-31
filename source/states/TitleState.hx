@@ -409,7 +409,7 @@ class TitleState extends MusicBeatState
 				addMoreText(lineText);
 		}
 	}
-
+        }
 	public var titleTextData:Array<String>;
 
 	override function beatHit()
