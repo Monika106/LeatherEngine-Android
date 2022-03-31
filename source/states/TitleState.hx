@@ -360,6 +360,7 @@ class TitleState extends MusicBeatState
 				FlxG.switchState(new MainMenuState());
 				});
 
+                for (touch in FlxG.touches.list)
 		if (touch && !skippedIntro)
 		{
 			skipIntro();
