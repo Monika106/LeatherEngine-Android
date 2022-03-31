@@ -356,14 +356,9 @@ class TitleState extends MusicBeatState
                         for (touch in FlxG.touches.list)
 			{ 
                                
-                   if (touch.justPressed) 
+                         if (touch.justPressed) 
 				FlxG.switchState(new MainMenuState());
 				});
-				
-			}
-                 
-                }
-           }
 
 		if (pressedEnter && !skippedIntro)
 		{
