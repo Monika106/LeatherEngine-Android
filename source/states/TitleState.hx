@@ -1,4 +1,3 @@
-
 package states;
 
 import utilities.Options;
@@ -62,10 +61,10 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-	    #if android		
-        FlxG.android.preventDefaultKeys = [BACK];
-        #end  
-	
+		#if android		
+                FlxG.android.preventDefaultKeys = [BACK];
+                #end
+
 		MusicBeatState.windowNameSuffix = "";
 
 		if(!firstTimeStarting)
@@ -314,15 +313,16 @@ class TitleState extends MusicBeatState
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
 
-		#if android
+		#if mobile
 		for (touch in FlxG.touches.list)
 		{
 			if (touch.justPressed)
 			{
-				pressedEnter= true;
+				pressedEnter = true;
 			}
 		}
 		#end
+
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
 
 		if (gamepad != null)
@@ -353,12 +353,12 @@ class TitleState extends MusicBeatState
 			// FlxG.sound.music.stop();
 
 			new FlxTimer().start(2, function(tmr:FlxTimer)
-                        for (touch in FlxG.touches.list)
-			{ 
-                               
-                         if (touch.justPressed) 
+			{
 				FlxG.switchState(new MainMenuState());
-				});
+			});
+
+			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
+		}
 
 		if (pressedEnter && !skippedIntro)
 		{
@@ -409,7 +409,7 @@ class TitleState extends MusicBeatState
 				addMoreText(lineText);
 		}
 	}
-        }
+
 	public var titleTextData:Array<String>;
 
 	override function beatHit()
@@ -528,8 +528,5 @@ class TitleState extends MusicBeatState
 			remove(credGroup);
 			skippedIntro = true;
 		}
-	
-	
-	
-}
+	}
 }
