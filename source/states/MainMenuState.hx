@@ -20,7 +20,6 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import lime.app.Application;
-import modding.PolymodHandler;
 
 using StringTools;
 
@@ -37,11 +36,11 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-		if(PolymodHandler.metadataArrays.length > 0)
+		/*if(PolymodHandler.metadataArrays.length > 0)
 			optionShit.push('mods');
 
 		if(Replay.getReplayList().length > 0)
-			optionShit.push('replays');
+			optionShit.push('replays');*/
 		
 		#if !web
 		//optionShit.push('multiplayer');
