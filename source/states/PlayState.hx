@@ -666,7 +666,7 @@ class PlayState extends MusicBeatState
 			enemyStrums = new FlxTypedGroup<StrumNote>();
 			splashes = new FlxTypedGroup<NoteSplash>();
 
-			generateSong(SONG.song);
+			generateSong(SUtil.getPath() + SONG.song);
 
 			camFollow = new FlxObject(0, 0, 1, 1);
 
