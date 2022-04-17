@@ -38,7 +38,7 @@ class MusicBeatSubstate extends FlxSubState
 	var _virtualpad:FlxVirtualPad;
 	var trackedinputs:Array<FlxActionInput> = [];
 	#end
-
+	
 	#if android
 	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
 		_virtualpad = new FlxVirtualPad(DPad, Action);
@@ -58,12 +58,12 @@ class MusicBeatSubstate extends FlxSubState
 		_virtualpad.cameras = [camcontrol];
 	}
 	#end
-
+	
 	override function destroy() {
 		#if android
 		controls.removeFlxInput(trackedinputs);	
 		#end	
-
+		
 		super.destroy();
 	}
 
