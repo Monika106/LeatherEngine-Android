@@ -393,7 +393,7 @@ class FreeplayState extends MusicBeatState
 			}
 
 			#if PRELOAD_ALL
-			if (controls.X)
+			if (FlxG.keys.justPressed.SPACE #if android || _virtualpad.buttonX.justPressed #end)
 			{
 				destroyFreeplayVocals();
 
