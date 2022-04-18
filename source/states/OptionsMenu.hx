@@ -254,6 +254,7 @@ class OptionsMenu extends MusicBeatState
 			openSelectedSubstate(options[curSelected]);
 		}
 	}
+}
 
 			if(-1 * Math.floor(FlxG.mouse.wheel) != 0)
 			{
