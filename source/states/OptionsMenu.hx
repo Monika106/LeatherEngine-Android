@@ -250,12 +250,6 @@ class OptionsMenu extends MusicBeatState
 
 		if (!inMenu)
 		{
-                 if (controls.ACCEPT) {
-			openSelectedSubstate(options[curSelected]);
-		}
-	}
-}
-
 			if(-1 * Math.floor(FlxG.mouse.wheel) != 0)
 			{
 				curSelected -= 1 * Math.floor(FlxG.mouse.wheel);
