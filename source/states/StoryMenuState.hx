@@ -116,7 +116,7 @@ class StoryMenuState extends MusicBeatState
 
 				if(controls.X)
 					changeGroup(1);
-				ifcontrols.Y)
+				if(controls.Y)
 					changeGroup(-1);
 
 				if(controls.RESET)
