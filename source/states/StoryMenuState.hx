@@ -114,9 +114,9 @@ class StoryMenuState extends MusicBeatState
 				if (controls.LEFT_P)
 					changeDifficulty(-1);
 
-				if(controls.X)
+				if(FlxG.keys.justPressed.E #if android || _virtualpad.buttonX.justPressed #end)
 					changeGroup(1);
-				if(controls.Y)
+				if(FlxG.keys.justPressed.Q #if android || _virtualpad.buttonX.justPressed #end)
 					changeGroup(-1);
 
 				if(controls.RESET)
