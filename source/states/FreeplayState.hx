@@ -215,12 +215,17 @@ class FreeplayState extends MusicBeatState
 		add(text);
 
                 #if android
-                addVirtualPad(FULL, A_B);
+                addVirtualPad(FULL, A_B_X_Y);
                 #end
 
 		super.create();
 	}
-
+      if (controls.ACCEPT) 
+      {
+          FlxG.switchState(new PlayState());
+          });
+      }
+          
 	public function addSong(songName:String, weekNum:Int, songCharacter:String)
 	{
 		songs.push(new SongMetadata(songName, weekNum, songCharacter));
@@ -390,7 +395,7 @@ class FreeplayState extends MusicBeatState
 			}
 
 			#if PRELOAD_ALL
-			if (FlxG.keys.justPressed.SPACE)
+			if (controls.X)
 			{
 				destroyFreeplayVocals();
 
@@ -447,7 +452,7 @@ class FreeplayState extends MusicBeatState
 				changeSelection();
 			}
 
-			if(controls.ACCEPT && canEnterSong)
+			if(FlxG.keys.justPressed.ENTER && canEnterSong)
 			{
 				var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDiffString);
 	
