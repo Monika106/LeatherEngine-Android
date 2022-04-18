@@ -138,7 +138,10 @@ class StoryMenuState extends MusicBeatState
 			movedBack = true;
 			FlxG.switchState(new MainMenuState());
 		}
-
+       if (controls.ACCEPT && !selectedWeek)
+		{
+		  FlxG.switchState(new PlayState());
+	 }
 		super.update(elapsed);
 	}
 
