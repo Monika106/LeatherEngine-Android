@@ -276,7 +276,10 @@ class OptionsMenu extends MusicBeatState
 			if(controls.BACK)
 				inMenu = false;
 		}
-
+                 if (controls.ACCEPT) {
+			openSelectedSubstate(options[curSelected]);
+		}
+	}
 		if (curSelected < 0)
 			curSelected = page.length - 1;
 
