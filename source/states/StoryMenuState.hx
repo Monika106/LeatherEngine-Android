@@ -71,7 +71,7 @@ class StoryMenuState extends MusicBeatState
 		createStoryUI();
 
                 #if android
-                addVirtualPad(FULL, A_B);
+                addVirtualPad(FULL, A_B_X_Y);
                 #end
 
 		super.create();
@@ -114,9 +114,9 @@ class StoryMenuState extends MusicBeatState
 				if (controls.LEFT_P)
 					changeDifficulty(-1);
 
-				if(FlxG.keys.justPressed.E)
+				if(FlxG.keys.justPressed.X)
 					changeGroup(1);
-				if(FlxG.keys.justPressed.Q)
+				if(FlxG.keys.justPressed.Y)
 					changeGroup(-1);
 
 				if(controls.RESET)
