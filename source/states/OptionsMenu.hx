@@ -3,7 +3,6 @@ package states;
 import utilities.CoolUtil;
 import substates.UISkinSelect;
 import substates.ControlMenuSubstate;
-import substates.openSelectedSubstate;
 import modding.CharacterCreationState;
 import utilities.MusicUtilities;
 import ui.Option;
@@ -278,9 +277,6 @@ class OptionsMenu extends MusicBeatState
 				inMenu = false;
 		}
 
-                if (controls.ACCEPT) {
-			openSelectedSubstate(options[curSelected]);
-		}
 
 		if (curSelected < 0)
 			curSelected = page.length - 1;
