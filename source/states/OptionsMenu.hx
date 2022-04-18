@@ -280,6 +280,7 @@ class OptionsMenu extends MusicBeatState
 			openSelectedSubstate(options[curSelected]);
 		}
 	}
+}
 		if (curSelected < 0)
 			curSelected = page.length - 1;
 
