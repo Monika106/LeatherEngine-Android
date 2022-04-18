@@ -220,12 +220,6 @@ class FreeplayState extends MusicBeatState
 
 		super.create();
 	}
-      if (controls.ACCEPT) 
-      {
-          FlxG.switchState(new PlayState());
-          });
-      }
-          
 	public function addSong(songName:String, weekNum:Int, songCharacter:String)
 	{
 		songs.push(new SongMetadata(songName, weekNum, songCharacter));
@@ -317,7 +311,6 @@ class FreeplayState extends MusicBeatState
 				}
 				#end
 			}
-
 			if (upP)
 				changeSelection(-1);
 			if (downP)
@@ -379,7 +372,13 @@ class FreeplayState extends MusicBeatState
 			{
 				if(colorTween != null)
 					colorTween.cancel();
-
+					
+             if (controls.ACCEPT)
+      {
+          FlxG.switchState(new PlayState());
+          });
+      }
+      
 				#if cpp
 				@:privateAccess
 				{
