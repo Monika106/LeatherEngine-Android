@@ -376,8 +376,7 @@ class FreeplayState extends MusicBeatState
              if (controls.ACCEPT)
       {
           FlxG.switchState(new PlayState());
-          });
-      }
+          }
       
 				#if cpp
 				@:privateAccess
