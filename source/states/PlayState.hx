@@ -12,9 +12,9 @@ import modding.FlxVideo;
 import utilities.Discord.DiscordClient;
 #end
 
-#if polymod
+/*#if polymod
 import polymod.backends.PolymodAssets;
-#end
+#end*/
 
 import utilities.Options;
 import flixel.util.FlxStringUtil;
@@ -1012,7 +1012,7 @@ class PlayState extends MusicBeatState
 				#if linc_luajit
 				if(!event_luas.exists(event[0].toLowerCase()) && Assets.exists(Paths.lua("event data/" + event[0].toLowerCase())))
 				{
-					event_luas.set(event[0].toLowerCase(), ModchartUtilities.createModchartUtilities(PolymodAssets.getPath(Paths.lua("event data/" + event[0].toLowerCase()))));
+					event_luas.set(event[0].toLowerCase(), ModchartUtilities.createModchartUtilities(SUtil.getPath() + (Paths.lua("event data/" + event[0].toLowerCase()))));
 					generatedSomeDumbEventLuas = true;
 				}
 				#end
@@ -1179,7 +1179,7 @@ class PlayState extends MusicBeatState
 		}
 		
 		var foundFile:Bool = false;
-		var fileName:String = #if sys SUtil.getPath() + PolymodAssets.getPath(Paths.video(name, ext)) #else Paths.video(name, ext) #end;
+		var fileName:String = #if sys SUtil.getPath() + (Paths.video(name, ext)) #else Paths.video(name, ext) #end;
 
 		#if sys
 		if(FileSystem.exists(SUtil.getPath() + fileName)) {
@@ -4590,7 +4590,7 @@ class PlayState extends MusicBeatState
 		#if linc_luajit
 		if(!event_luas.exists(event[0].toLowerCase()) && Assets.exists(Paths.lua("event data/" + event[0].toLowerCase())))
 		{
-			event_luas.set(event[0].toLowerCase(), ModchartUtilities.createModchartUtilities(PolymodAssets.getPath(Paths.lua("event data/" + event[0].toLowerCase()))));
+			event_luas.set(event[0].toLowerCase(), ModchartUtilities.createModchartUtilities(SUtil.getPath() + (Paths.lua("event data/" + event[0].toLowerCase()))));
 			generatedSomeDumbEventLuas = true;
 		}
 		#end
