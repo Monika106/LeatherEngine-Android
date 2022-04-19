@@ -271,6 +271,11 @@ class OptionsMenu extends MusicBeatState
 			if (controls.BACK)
 				FlxG.switchState(new MainMenuState());
 		}
+		
+		if (controls.ACCEPT)
+				FlxG.switchPage(new PageOption());
+		}
+		
 		else
 		{
 			if(controls.BACK)
