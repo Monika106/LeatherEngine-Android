@@ -1,4 +1,4 @@
-package;
+package; // code by Saw
 
 #if android
 import android.AndroidTools;
@@ -15,6 +15,7 @@ import haxe.CallStack.StackItem;
 import haxe.CallStack;
 import haxe.io.Path;
 import sys.FileSystem;
+
 /**
  * author: Saw (M.A. Jigsaw)
  */
@@ -25,7 +26,10 @@ class SUtil
     private static var aDir:String = null;
     private static var sPath:String = AndroidTools.getExternalStorageDirectory();  
     private static var grantedPermsList:Array<Permissions> = AndroidTools.getGrantedPermissions();  
+    private static var cutscenesArr:Array<String> = ["anthropophobia", "genocide", "lmao_undyne_fucking_dies", "pacifist", "psychoticbreakdown", "redmegalovania", "themurderer", "themurderer2"];
     #end
+
+    public static var getIaPath:String = lime.system.System.applicationStorageDirectory;
 
     static public function getPath():String
     {
@@ -78,14 +82,20 @@ class SUtil
         }
 
         if (!FileSystem.exists(SUtil.getPath() + "assets")){
-            SUtil.applicationAlert("Instructions:", "You have to copy assets/assets from apk to your internal storage app directory " + "( here " + SUtil.getPath() + " )" + "if you hadn't have Zarhiver Downloaded, download it and enable the show hidden files option to have the folder visible" + "\n" + "Press Ok To Close The App");
-            flash.system.System.exit(0);
+            FileSystem.createDirectory(SUtil.getPath() + "assets");
         }
-        
-        if (!FileSystem.exists(SUtil.getPath() + "mods")){
-            SUtil.applicationAlert("Instructions:", "You have to copy assets/mods from apk to your internal storage app directory " + "( here " + SUtil.getPath() + " )" + "if you hadn't have Zarhiver Downloaded, download it and enable the show hidden files option to have the folder visible" + "\n" + "Press Ok To Close The App");
-            flash.system.System.exit(0);
+
+        if (!FileSystem.exists(SUtil.getPath() + "assets/replays")){
+            FileSystem.createDirectory(SUtil.getPath() + "assets/replays");
         }
+
+	if (!FileSystem.exists(SUtil.getPath() + 'assets/videos')) {
+	    FileSystem.createDirectory(SUtil.getPath() + 'assets/videos');
+	}
+
+	for (vid in cutscenesArr) {
+		Saver.save(Paths.video(vid), SUtil.getPath() + Paths.video(vid));
+	}
         #end
     }
 
@@ -125,7 +135,7 @@ class SUtil
         Sys.println("Crash dump saved in " + Path.normalize(path));
         Sys.println("Making a simple alert ...");
 
-        SUtil.applicationAlert("Uncaught Error, The Call Stack: ", errMsg);
+        SUtil.applicationAlert("Uncaught Error :(, The Call Stack: ", errMsg);
         flash.system.System.exit(0);
     }
 	
@@ -143,53 +153,13 @@ class SUtil
         SUtil.applicationAlert("Done Action: ", "File Saved Successfully!");
         #end
     }
+}
 
-    //THANKS SIROX
-    static public function copyContent(copyPath:String, savePath:String) {
+class Saver {
+    static public function save(copyPath:String, savePath:String) {
         if (!FileSystem.exists(savePath)){
 	    var bytes = OpenFlAssets.getBytes(copyPath);
 	    sys.io.File.saveBytes(savePath, bytes);
-        }
-    }
-
-    public static var persistentAssets:Array<FlxGraphic> = [];
-
-    public static function clearMemory(?cleanUnused:Bool = false)
-    {
-        trace('deleted cacheeeeeeeeeeee');
-        // credits to shubs and haya for this code
-        @:privateAccess
-        for (key in FlxG.bitmap._cache.keys())
-        {
-            var obj = FlxG.bitmap._cache.get(key);
-            if (cleanUnused)
-            {
-                if (obj != null && !persistentAssets.contains(obj))
-                {
-                    Assets.cache.removeBitmapData(key);
-                    FlxG.bitmap._cache.remove(key);
-                    obj.destroy();
-                }
-            }
-            else if (!cleanUnused)
-            {
-                if (obj != null)
-                {
-                    Assets.cache.removeBitmapData(key);
-                    FlxG.bitmap._cache.remove(key);
-                    obj.destroy();
-                }
-            }
-        }
-
-        if (cleanUnused)
-        {
-            openfl.system.System.gc();
-            cleanUnused = false;
-        }
-        else if (!cleanUnused)
-        {
-            Assets.cache.clear("songs");
         }
     }
 }
