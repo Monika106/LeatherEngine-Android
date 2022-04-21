@@ -204,9 +204,9 @@ class FreeplayState extends MusicBeatState
 		add(textBG);
 
 		#if PRELOAD_ALL
-		var leText:String = "Press RESET to reset song score and rank | Press SPACE to play Song Audio | Shift + LEFT and RIGHT to change song speed";
+		var leText:String = "Press Y to reset song score and rank | Press X to play Song Audio | Y + LEFT and RIGHT to change song speed";
 		#else
-		var leText:String = "Press RESET to reset song score";
+		var leText:String = "Press Y to reset song score";
 		#end
 
 		var text:FlxText = new FlxText(textBG.x - 1, textBG.y + 4, FlxG.width, leText, 18);
@@ -287,7 +287,7 @@ class FreeplayState extends MusicBeatState
 
 		var leftP = controls.LEFT_P;
 		var rightP = controls.RIGHT_P;
-		var shift = FlxG.keys.pressed.SHIFT;
+		var shift = FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonY.justPressed #end;
 
 		var upP = controls.UP_P;
 		var downP = controls.DOWN_P;
@@ -318,7 +318,7 @@ class FreeplayState extends MusicBeatState
 	
 			if (leftP && !shift)
 				changeDiff(-1);
-			else if (leftP && shift)
+			else if (leftP && shift #if android || _virtualpad.buttonY &&  _virtualpad.buttonLeft.justPressed #end)
 			{
 				curSpeed -= 0.05;
 
@@ -336,7 +336,7 @@ class FreeplayState extends MusicBeatState
 
 			if (rightP && !shift)
 				changeDiff(1);
-			else if (rightP && shift)
+			else if (rightP && shift #if android || _virtualpad.buttonY && _virtualpad.buttonRight.justPressed #end)
 			{
 				curSpeed += 0.05;
 
@@ -375,7 +375,7 @@ class FreeplayState extends MusicBeatState
 					
              if (controls.ACCEPT)
       {
-          FlxG.switchState(new PlayState());
+          LoadingState.loadAndSwitchState(new PlayState());
           }
       
 				#if cpp
@@ -450,7 +450,7 @@ class FreeplayState extends MusicBeatState
 				changeSelection();
 			}
 
-			if(FlxG.keys.justPressed.ENTER && canEnterSong)
+			if(FlxG.keys.justPressed.ENTER && canEnterSong #if android || _virtualpad.buttonA.justPressed #end)
 			{
 				var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDiffString);
 	
