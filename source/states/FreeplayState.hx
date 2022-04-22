@@ -318,7 +318,7 @@ class FreeplayState extends MusicBeatState
 	
 			if (leftP && !shift)
 				changeDiff(-1);
-			else if (leftP && shift #if android || _virtualpad.buttonY &&  _virtualpad.buttonLeft.justPressed #end)
+			else if (leftP && shift #if android || _virtualpad.buttonLeft.justPressed #end)
 			{
 				curSpeed -= 0.05;
 
@@ -336,7 +336,7 @@ class FreeplayState extends MusicBeatState
 
 			if (rightP && !shift)
 				changeDiff(1);
-			else if (rightP && shift #if android || _virtualpad.buttonY && _virtualpad.buttonRight.justPressed #end)
+			else if (rightP && shift #if android || _virtualpad.buttonRight.justPressed #end)
 			{
 				curSpeed += 0.05;
 
