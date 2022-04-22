@@ -278,7 +278,7 @@ class FreeplayState extends MusicBeatState
 			curSpeed = 0.25;
 
 		#if sys
-		speedText.text = "Speed: " + curSpeed + " (R+SHIFT #if android || _virtualpad.buttonY.justPressed #end)";
+		speedText.text = "Speed: " + curSpeed + " (Y To Change speed)";
 		#else
 		speedText.text = "";
 		#end
@@ -444,7 +444,7 @@ class FreeplayState extends MusicBeatState
 			#end
 			#end
 
-			if(controls.RESET && !shift)
+			if(controls.RESET && !shift #if android || _virtualpad.buttonY.justPressed #end)
 			{
 				openSubState(new ResetScoreSubstate(songs[curSelected].songName, curDiffString));
 				changeSelection();
