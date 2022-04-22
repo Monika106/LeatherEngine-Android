@@ -151,7 +151,7 @@ class OptionsMenu extends MusicBeatState
 		],
 		[
 		    "Android Controls"
-		   if (controls.ACCEPT.justPreesed)
+		   if (controls.ACCEPT.justPreesed),
 	        FlxG.switchState(new AndroidControlsMenu());
 	   ], 
 	   [
