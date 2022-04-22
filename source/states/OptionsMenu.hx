@@ -150,11 +150,6 @@ class OptionsMenu extends MusicBeatState
 			new UISkinSelectOption("UI Skin", 6)
 		],
 		[
-		    "Android Controls"
-		   if (controls.ACCEPT.justPreesed),
-	        FlxG.switchState(new AndroidControlsMenu());
-	   ], 
-	   [
 			"Screen Effects",
 			new PageOption("Back", 0, "Graphics"),
 			new BoolOption("Camera Tracks Direction", "cameraTracksDirections", 1),
