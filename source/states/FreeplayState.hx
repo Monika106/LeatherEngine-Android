@@ -278,7 +278,7 @@ class FreeplayState extends MusicBeatState
 			curSpeed = 0.25;
 
 		#if sys
-		speedText.text = "Speed: " + curSpeed + " (R+SHIFT)";
+		speedText.text = "Speed: " + curSpeed + " (R+SHIFT #if android || _virtualpad.buttonY.justPressed #end)";
 		#else
 		speedText.text = "";
 		#end
@@ -352,7 +352,7 @@ class FreeplayState extends MusicBeatState
 				#end
 			}
 
-			if(FlxG.keys.justPressed.R  && shift)
+			if(FlxG.keys.justPressed.R  && shift #if android || _virtualpad.buttonY.justPressed #end)
 			{
 				curSpeed = 1;
 
@@ -435,10 +435,10 @@ class FreeplayState extends MusicBeatState
 			#if cpp
 			@:privateAccess
 			{
-				if(FlxG.sound.music.active && FlxG.sound.music.playing && !FlxG.keys.justPressed.ENTER)
+				if(FlxG.sound.music.active && FlxG.sound.music.playing && !FlxG.keys.justPressed.ENTER #if android || _virtualpad.buttonA.justPressed #end)
 					lime.media.openal.AL.sourcef(FlxG.sound.music._channel.__source.__backend.handle, lime.media.openal.AL.PITCH, curSpeed);
 	
-				if(vocals.active && vocals.playing && !FlxG.keys.justPressed.ENTER)
+				if(vocals.active && vocals.playing && !FlxG.keys.justPressed.ENTER #if android || _virtualpad.buttonA.justPressed #end)
 					lime.media.openal.AL.sourcef(vocals._channel.__source.__backend.handle, lime.media.openal.AL.PITCH, curSpeed);
 			}
 			#end
