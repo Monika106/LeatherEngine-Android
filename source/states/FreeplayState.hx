@@ -641,7 +641,7 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.music.destroy();
 		}
 		
-        FlxG.sound.music
+                        FlxG.sound.music
 	}
 }
 
