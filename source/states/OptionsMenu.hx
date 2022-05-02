@@ -192,7 +192,7 @@ class OptionsMenu extends MusicBeatState
 		add(menuBG);
 
                 #if android
-                addVirtualPad(UP_DOWN, A_B);
+                addVirtualPad(UP_DOWN, A_B_C);
                 #end
 
 		super.create();
