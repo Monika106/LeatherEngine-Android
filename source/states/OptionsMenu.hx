@@ -277,6 +277,22 @@ class OptionsMenu extends MusicBeatState
 				inMenu = false;
 		}
  
+                         if (controls.ACCEPT) {
+			#if android
+			_virtualpad.alpha = 0;
+			removeVirtualPad();
+			#end
+			openSelectedSubstate(options[curSelected]);
+		}
+
+		#if android
+		if (_virtualpad.buttonC.justPressed) {
+			#if android
+			_virtualpad.alpha = 0;
+			removeVirtualPad();
+			#end
+			MusicBeatState.switchState(new android.AndroidControlsMenu());
+		}
            
 		if (curSelected < 0)
 			curSelected = page.length - 1;
