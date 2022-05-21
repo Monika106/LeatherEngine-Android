@@ -884,9 +884,7 @@ class PlayState extends MusicBeatState
 
                 #if android
 	          addAndroidcontrols();
-                #end
-                
-              super.create()
+               #end
               
 			startingSong = true;
 
