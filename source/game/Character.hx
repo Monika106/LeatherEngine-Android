@@ -8,11 +8,13 @@ import flixel.util.FlxColor;
 import lime.utils.Assets;
 import haxe.Json;
 #if MODS_ALLOWED
+import sys.io.File;
+import sys.FileSystem;
+#end
 import utilities.CoolUtil;
 import states.PlayState;
 import flixel.FlxSprite;
 import modding.CharacterConfig;
-#end
 using StringTools;
 
 class Character extends FlxSprite
