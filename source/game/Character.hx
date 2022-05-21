@@ -12,7 +12,7 @@ import utilities.CoolUtil;
 import states.PlayState;
 import flixel.FlxSprite;
 import modding.CharacterConfig;
-
+#end
 using StringTools;
 
 class Character extends FlxSprite
