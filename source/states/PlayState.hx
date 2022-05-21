@@ -67,6 +67,12 @@ import game.Boyfriend;
 import game.StageGroup;
 import game.Conductor;
 import game.Song;
+#if android
+import flixel.group.FlxGroup;
+import android.FlxHitbox;
+import android.FlxVirtualPad;
+import flixel.ui.FlxButton;
+#end
 import utilities.CoolUtil;
 import substates.PauseSubState;
 import substates.GameOverSubstate;
@@ -877,9 +883,11 @@ class PlayState extends MusicBeatState
 				ratingText.cameras = [camHUD];
 
                 #if android
-	        addAndroidControls();
+	          addAndroidcontrols();
                 #end
-
+                
+              super.create()
+              
 			startingSong = true;
 
 			var cutscenePlays = utilities.Options.getData("cutscenePlaysOn");
@@ -1483,7 +1491,7 @@ class PlayState extends MusicBeatState
 		curSong = songData.song;
 
 		if (SONG.needsVoices)
-			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, (SONG.specialAudioName == null ? storyDifficultyStr.toLowerCase() : SONG.specialAudioName)));
+			vocals = new FlxSound().loadEmbedded(SUtil.getPath() + Paths.voices(PlayState.SONG.song, (SONG.specialAudioName == null ? storyDifficultyStr.toLowerCase() : SONG.specialAudioName)));
 		else
 			vocals = new FlxSound();
 
@@ -2525,7 +2533,7 @@ class PlayState extends MusicBeatState
 
 		currentBeat = curBeat;
 
-		if(FlxG.keys.checkStatus(FlxKey.fromString(utilities.Options.getData("pauseBind", "binds")), FlxInputState.JUST_PRESSED) && startedCountdown && canPause && !switchedStates)
+		if(FlxG.keys.checkStatus(FlxKey.fromString(utilities.Options.getData("pauseBind", "binds")), FlxInputState.JUST_PRESSED #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause && !switchedStates)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;
