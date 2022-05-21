@@ -67,11 +67,13 @@ import game.Boyfriend;
 import game.StageGroup;
 import game.Conductor;
 import game.Song;
+import shaders.Shaders;
 #if android
 import flixel.group.FlxGroup;
 import android.FlxHitbox;
 import android.FlxVirtualPad;
 import flixel.ui.FlxButton;
+import android.AndroidControl;
 #end
 import utilities.CoolUtil;
 import substates.PauseSubState;
