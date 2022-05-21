@@ -8,7 +8,6 @@ import flixel.util.FlxColor;
 import lime.utils.Assets;
 import haxe.Json;
 #if MODS_ALLOWED
-import sys.FileSystem;
 #end
 import utilities.CoolUtil;
 import states.PlayState;
