@@ -13,7 +13,7 @@ import ui.MenuCharacter;
 import ui.MenuItem;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.FlxState
+import flixel.FlxState;
 import flixel.group.FlxGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
