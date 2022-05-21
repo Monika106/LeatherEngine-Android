@@ -7,12 +7,11 @@ import flixel.addons.effects.FlxTrail;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
 import haxe.Json;
-#if MODS_ALLOWED
-#end
 import utilities.CoolUtil;
 import states.PlayState;
 import flixel.FlxSprite;
 import modding.CharacterConfig;
+
 using StringTools;
 
 class Character extends FlxSprite
@@ -58,26 +57,6 @@ class Character extends FlxSprite
 		this.isDeathCharacter = isDeathCharacter;
 
 		antialiasing = true;
-                                #if MODS_ALLOWED
-				var path:String = Paths.modFolders(characterPath);
-				if (!FileSystem.exists(path)) {
-					path = SUtil.getPath() + Paths.getPreloadPath(characterPath);
-				}
-
-				if (!FileSystem.exists(path))
-				#else
-				var path:String = Paths.getPreloadPath(characterPath);
-				if (!Assets.exists(path))
-				#end
-				{
-					path = SUtil.getPath() + Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
-				}
-
-            #if MODS_ALLOWED
-				var rawJson = File.getContent(path);
-				#else
-				var rawJson = Assets.getText(path);
-				#end
 
 		dancesLeftAndRight = false;
 
@@ -86,7 +65,7 @@ class Character extends FlxSprite
 		switch (curCharacter)
 		{
 			case 'monster':
-				frames = SUtil.getPath() + Paths.getSparrowAtlas('characters/Monster_Assets', 'shared');
+				frames = Paths.getSparrowAtlas('characters/Monster_Assets', 'shared');
 				animation.addByPrefix('idle', 'monster idle', 24, false);
 				animation.addByPrefix('singUP', 'monster up note', 24, false);
 				animation.addByPrefix('singDOWN', 'monster down', 24, false);
@@ -97,7 +76,7 @@ class Character extends FlxSprite
 				playAnim('idle');
 				barColor = FlxColor.fromRGB(245, 255, 105);
 			case 'monster-christmas':
-				frames = SUtil.getPath() + Paths.getSparrowAtlas('characters/monsterChristmas', 'shared');
+				frames = Paths.getSparrowAtlas('characters/monsterChristmas', 'shared');
 				animation.addByPrefix('idle', 'monster idle', 24, false);
 				animation.addByPrefix('singUP', 'monster up note', 24, false);
 				animation.addByPrefix('singDOWN', 'monster down', 24, false);
@@ -110,9 +89,9 @@ class Character extends FlxSprite
 				icon = "monster";
 			case 'pico':
 				if(Options.getData("optimizedChars"))
-					frames = SUtil.getPath() + Paths.getSparrowAtlas('characters/Optimized_Pico_FNF_assetss', 'shared');
+					frames = Paths.getSparrowAtlas('characters/Optimized_Pico_FNF_assetss', 'shared');
 				else
-					frames = SUtil.getPath() + Paths.getSparrowAtlas('characters/Pico_FNF_assetss', 'shared');
+					frames = Paths.getSparrowAtlas('characters/Pico_FNF_assetss', 'shared');
 
 				animation.addByPrefix('idle', "Pico Idle Dance", 24);
 				animation.addByPrefix('singUP', 'pico Up note0', 24, false);
@@ -145,7 +124,7 @@ class Character extends FlxSprite
 			case 'bf-pixel':
 				swapLeftAndRightSingPlayer = false;
 
-				frames = SUtil.getPath() + Paths.getSparrowAtlas('characters/bfPixel', 'shared');
+				frames = Paths.getSparrowAtlas('characters/bfPixel', 'shared');
 				animation.addByPrefix('idle', 'BF IDLE', 24, false);
 				animation.addByPrefix('singUP', 'BF UP NOTE', 24, false);
 				animation.addByPrefix('singLEFT', 'BF LEFT NOTE', 24, false);
@@ -180,7 +159,7 @@ class Character extends FlxSprite
 			case 'bf-pixel-dead':
 				swapLeftAndRightSingPlayer = false;
 
-				frames = SUtil.getPath() + Paths.getSparrowAtlas('characters/bfPixelsDEAD', 'shared');
+				frames = Paths.getSparrowAtlas('characters/bfPixelsDEAD', 'shared');
 				animation.addByPrefix('singUP', "BF Dies pixel", 24, false);
 				animation.addByPrefix('firstDeath', "BF Dies pixel", 24, false);
 				animation.addByPrefix('deathLoop', "Retry Loop", 24, true);
@@ -194,7 +173,7 @@ class Character extends FlxSprite
 				flipX = true;
 				barColor = FlxColor.fromRGB(123, 214, 246);
 			case 'senpai':
-				frames = SUtil.getPath() + Paths.getSparrowAtlas('characters/senpai', 'shared');
+				frames = Paths.getSparrowAtlas('characters/senpai', 'shared');
 				animation.addByPrefix('idle', 'Senpai Idle', 24, false);
 				animation.addByPrefix('singUP', 'SENPAI UP NOTE', 24, false);
 				animation.addByPrefix('singLEFT', 'SENPAI LEFT NOTE', 24, false);
@@ -212,7 +191,7 @@ class Character extends FlxSprite
 				antialiasing = false;
 				barColor = FlxColor.fromRGB(255, 170, 111);
 			case 'senpai-angry':
-				frames = SUtil.getPath() + Paths.getSparrowAtlas('characters/senpai', 'shared');
+				frames = Paths.getSparrowAtlas('characters/senpai', 'shared');
 				animation.addByPrefix('idle', 'Angry Senpai Idle', 24, false);
 				animation.addByPrefix('singUP', 'Angry Senpai UP NOTE', 24, false);
 				animation.addByPrefix('singLEFT', 'Angry Senpai LEFT NOTE', 24, false);
@@ -230,7 +209,7 @@ class Character extends FlxSprite
 				antialiasing = false;
 				barColor = FlxColor.fromRGB(255, 170, 111);
 			case 'spirit':
-				frames = SUtil.getPath() + Paths.getPackerAtlas('characters/spirit', 'shared');
+				frames = Paths.getPackerAtlas('characters/spirit', 'shared');
 				animation.addByPrefix('idle', "idle spirit_", 24, false);
 				animation.addByPrefix('singUP', "up_", 24, false);
 				animation.addByPrefix('singRIGHT', "right_", 24, false);
