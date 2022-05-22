@@ -885,7 +885,7 @@ class PlayState extends MusicBeatState
 				ratingText.cameras = [camHUD];
 
                 #if android
-	          addAndroidcontrols();
+	          addAndroidControls();
                #end
               
 			startingSong = true;
