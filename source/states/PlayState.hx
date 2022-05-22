@@ -73,7 +73,7 @@ import flixel.group.FlxGroup;
 import android.FlxHitbox;
 import android.FlxVirtualPad;
 import flixel.ui.FlxButton;
-import android.Androidcontrols;
+import android.AndroidControls;
 #end
 import utilities.CoolUtil;
 import substates.PauseSubState;
